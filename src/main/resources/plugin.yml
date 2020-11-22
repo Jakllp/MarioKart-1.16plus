@@ -1,0 +1,36 @@
+name: MarioKart
+main: net.stormdev.mario.mariokart.MarioKart
+version: 8.5
+api-version: 1.13
+softdepend: [Vault, BarAPI]
+depend: [uCars]
+commands:
+   marioRaceAdmin:
+        aliases: [mra, marioadmin]
+        description: This is the setup of racetracks and admin commands
+        usage: /<command> [Create <TrackName> <Laps> (MinPlayers)] [Delete <TrackName>] [List (Page)] [Races (Page)] [End <RaceTrack>/Endall] [setLaps <TrackName> <Laps>] [setMinPlayers <TrackName> <Num>] [setRewards <TrackName> <1st> <2nd> <3rd>] [ShopVillager] [ToggleServer]
+        permission: mariokart.raceadmin
+        permission-message: You don't have access to this command
+        default: op
+   race:
+        description: This is the playing of race tracks
+        usage: /<command> [List (Page)] [Join <Track> (GameType "Race"/"Timed"/"Cup")] [Leave] [Queues] [Shop]
+        permission: mariokart.race
+        permission-message: You don't have access to this command
+        default: true
+   racetimes:
+        description: Shows the top X race times for a track.
+        usage: /<command> <TrackName> <Amount>
+        permission: mariokart.race
+        permission-message: You don't have access to this command
+        default: true
+   vote:
+        aliases: [mvote]
+        description: Vote for a track
+        usage: /<command> <TrackName>
+   forcestart:
+        description: Force start a race if in FSM
+        usage: /<command>
+        permission: mariokart.raceadmin
+        permission-message: You don't have access to this command
+        default: op
