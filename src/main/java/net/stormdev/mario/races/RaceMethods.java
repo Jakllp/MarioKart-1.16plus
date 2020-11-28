@@ -10,9 +10,9 @@ import net.stormdev.mario.utils.ParticleEffects;
 import org.bukkit.Bukkit;
 import org.bukkit.Effect;
 import org.bukkit.Location;
-//import org.bukkit.Material;
+import org.bukkit.Material;
 import org.bukkit.Sound;
-//import org.bukkit.block.data.type.Jigsaw;
+import org.bukkit.block.data.type.Jigsaw;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Minecart;
 import org.bukkit.entity.Player;
@@ -98,7 +98,7 @@ public class RaceMethods {
 		Minecart car = (Minecart) loc.getWorld().spawnEntity(
 				loc, EntityType.MINECART);
 		car.setMetadata("kart.racing", new StatValue(null, MarioKart.plugin));
-		/* 1.16+ Jigsaw-Fun
+		
 		Jigsaw saw = (Jigsaw) Material.JIGSAW.createBlockData();
 		
 		int rand = MarioKart.plugin.random.nextInt(11); // 0-11 random
@@ -141,7 +141,7 @@ public class RaceMethods {
 				break;
 		}
 		car.setDisplayBlockData(saw);
-		car.setDisplayBlockOffset(0); */
+		car.setDisplayBlockOffset(0);
 		
 		return car;
 	}
