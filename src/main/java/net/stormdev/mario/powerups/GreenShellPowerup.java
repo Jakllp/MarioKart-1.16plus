@@ -69,7 +69,7 @@ public class GreenShellPowerup extends ShellPowerup {
 		player.updateInventory();
 		Location loc = player.getLocation().add(
 				player.getLocation().getDirection().setY(0)
-						.multiply(-2));
+						.multiply(-1.5));
 		
 		spawn(loc.add(0,1,0), player);
 		
@@ -113,7 +113,7 @@ public class GreenShellPowerup extends ShellPowerup {
 		player.updateInventory();
 		Location loc = player.getLocation().add(
 				player.getLocation().getDirection().setY(0)
-						.multiply(1.5));
+						.multiply(1.25));
 		
 		spawn(loc, player);
 		

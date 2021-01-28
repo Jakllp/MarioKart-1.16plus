@@ -132,8 +132,17 @@ public abstract class TrackingShellPowerup extends ShellPowerup implements Track
 		Location targetLoc = null;
 		boolean goToCheck = false;
 		
+		if(game.getUser(target) == null) {
+			setExpiry(0);
+			return new Vector(0,0,0);
+		}
+		
 		if(this.currentCheckpoint != game.getUser(target).getCheckpoint()) {		//Better Tracking: First to same Checkpoint, then old tracking
-			targetLoc = SerializableLocation.returnLocation(game.getTrack().getCheckpoint(this.currentCheckpoint + 1)); //Where to go
+			if(game.getTrack().getCheckpoint(this.currentCheckpoint + 1) != null) {
+				targetLoc = SerializableLocation.returnLocation(game.getTrack().getCheckpoint(this.currentCheckpoint + 1)); //Where to go
+			} else {
+				targetLoc = SerializableLocation.returnLocation(game.getTrack().getCheckpoint(0));
+			}
 
 			Location shLoc = shellLoc.clone();
 			Chunk chunk = shLoc.getChunk();
