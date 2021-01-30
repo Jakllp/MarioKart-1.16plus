@@ -352,6 +352,11 @@ public class AdminCommandExecutor implements CommandExecutor {
 				if(player.isInsideVehicle()) {
 					ItemStack give = MarioKart.powerupManager.getPowerup(args[1]);
 					
+					if(give == null) {
+						sender.sendMessage(ChatColor.RED+"NOPE");
+						return true;
+					}
+					
 					final ItemStack gve = give;
 					final Player pla = player;
 					Bukkit.getServer().getScheduler().runTaskAsynchronously(MarioKart.plugin, new Runnable() {

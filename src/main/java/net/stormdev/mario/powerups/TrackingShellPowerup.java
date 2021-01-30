@@ -123,7 +123,8 @@ public abstract class TrackingShellPowerup extends ShellPowerup implements Track
 	public Vector calculateVelocity() {
 		Location shellLoc = getFiredItem().getLocation();
 		double speed = 1.2;
-		if(getFiredItem().getItemStack().getItemMeta().getDisplayName().equals("Blue shell")) {
+		boolean isBlue = getFiredItem().getItemStack().getItemMeta().getDisplayName().equals("Blue shell");
+		if(isBlue) {
 			speed = 1.5;
 		}
 		final Player target = MarioKart.plugin.getServer().getPlayer(getTarget());
@@ -179,7 +180,9 @@ public abstract class TrackingShellPowerup extends ShellPowerup implements Track
 		}
 		
 		
-		if (!goToCheck && pz < 1.1 && px < 1.1) {
+		if (!goToCheck && !isBlue && pz < 1.1 && px < 1.1) {
+			collide(target);
+		} else if (!goToCheck && isBlue && pz < 1.5 && px < 1.5) {
 			collide(target);
 		} else if (pz < 1.5 && px < 1.5) {	//Reached Checkpoint
 			this.setCurrentCheckpoint(this.currentCheckpoint + 1);
@@ -215,8 +218,8 @@ public abstract class TrackingShellPowerup extends ShellPowerup implements Track
 		//Y-Course (move with track on Y-Axis)
 		int height = getHeight(loc);
 		if(getFiredItem().getItemStack().getItemMeta().getDisplayName().contains("Blue")) {
-			vel.add(new Vector(0,0.15,0)); //Correct course of BlueShell
-			if(height > 3) { 			   //"Smooth" Y-Axis Movement
+			vel.add(new Vector(0,0.15,0)); 									//Correct gravity of BlueShell
+			if(height > 3 && loc.getY() > targetLoc.getY()) { 			  	//"Smooth" Y-Axis Movement
 				vel.subtract(new Vector(0,0.1,0));
 				if(height > 4) {
 					vel.subtract(new Vector(0,0.3,0));

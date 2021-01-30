@@ -112,8 +112,7 @@ public class GreenShellPowerup extends ShellPowerup {
 		player.getInventory().setItemInMainHand(inHand);
 		player.updateInventory();
 		Location loc = player.getLocation().add(
-				player.getLocation().getDirection().setY(0)
-						.multiply(1.25));
+				player.getLocation().getDirection().setY(0));
 		
 		spawn(loc, player);
 		
