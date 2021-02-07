@@ -434,6 +434,7 @@ public class RaceScheduler {
 					final Minecart car = MarioKart.plugin.raceMethods.spawnKart(loc.add(0,0.2,0));
 					
 					car.setMetadata("car.frozen", new StatValue(null, MarioKart.plugin));
+					car.setMetadata("car.inertialYAxis", new StatValue(null, MarioKart.plugin));
 					
 					final Player pl = p;
 					
@@ -561,6 +562,7 @@ public class RaceScheduler {
 						}
 						for (Minecart car : cars) {
 							car.removeMetadata("car.frozen", MarioKart.plugin);
+							car.removeMetadata("car.inertialYAxis", MarioKart.plugin);
 						}
 						for (User user : users2) {
 							try {
