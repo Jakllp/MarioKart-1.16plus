@@ -168,10 +168,10 @@ public class MKLang {
 					"setup.create.grid",
 					"Stand where you want a car to start the race and right click anywhere (Without the wand). Repeat for all the starting positions. When done, right click anywhere with the wand");
 		}
-		if (!lang.contains("setup.create.checkpoints")) {
+		if (!lang.contains("setup.create.checkpoints") || !((String)lang.get("setup.create.checkpoints")).contains("%num%")) {
 			lang.set(
 					"setup.create.checkpoints",
-					"Stand at each checkpoint along the track (Checkpoint 10x10 radius) and right click anywhere (Without the wand). Repeat for all checkpoints. When done, right click anywhere with the wand");
+					"Stand at each checkpoint along the track (Checkpoint radius: %num%) and right click anywhere (Without the wand). Repeat for all checkpoints. When done, right click anywhere with the wand");
 		}
 		if (!lang.contains("setup.create.notEnoughCheckpoints")) {
 			lang.set("setup.create.notEnoughCheckpoints",

@@ -10,6 +10,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.Chunk;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.attribute.Attribute;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Damageable;
 import org.bukkit.entity.Entity;
@@ -143,6 +144,37 @@ public class RaceEventsListener implements Listener {
 	}
 	
 	@EventHandler
+	void newPlayerDeath(EntityDamageEvent event) { //Handle respawning
+		if(!(event.getEntity() instanceof Player)) {
+			return;
+		}
+		
+		Player player = (Player) event.getEntity();
+		Race r = plugin.raceMethods.inAGame(player, false);
+		if(player.getHealth() < event.getDamage() && r != null) {
+			Minecart car = (Minecart) player.getVehicle();
+			plugin.raceMethods.playerRespawn(player,car);
+			
+			for (PotionEffect effect : player.getActivePotionEffects()) {
+				player.removePotionEffect(effect.getType());
+			}
+			player.getInventory().clear();
+			player.setRemainingAir(player.getMaximumAir());
+			player.setHealth(20);
+			player.setFoodLevel(20);
+			player.setSaturation(20);
+			player.setExhaustion(0);
+			player.setFallDistance(0);
+			player.setFireTicks(0);
+			event.setDamage(0);
+			event.setCancelled(true);
+			return;
+		} else {
+			return;
+		}
+	}
+	
+	@EventHandler
 	void bananas(EntityPickupItemEvent event) {
 		Item item = event.getItem();
 		ItemStack stack = item.getItemStack();
@@ -182,7 +214,7 @@ public class RaceEventsListener implements Listener {
 	}
 	
 	@EventHandler
-	void playerDeath(PlayerDeathEvent event) {
+	void playerDeath(PlayerDeathEvent event) {   //Shouldn't be active anymore
 		Race r = plugin.raceMethods.inAGame(event.getEntity(), false);
 		if (r == null) {
 			return;

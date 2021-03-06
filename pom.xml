@@ -2,11 +2,11 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>net.stormdev</groupId>
     <artifactId>MarioKart</artifactId>
-    <name>MarioKart</name>
-    <url>https://github.com/storm345dev/MarioKart</url>
+    <name>MarioKart-1.16+</name>
+    <url>https://github.com/Jakllp/MarioKart-1.16plus</url>
     <issueManagement>
         <system>GitHub</system>
-        <url>https://github.com/storm345dev/MarioKart/issues</url>
+        <url>https://github.com/Jakllp/MarioKart-1.16plus/issues</url>
     </issueManagement>
     <build>
         <finalName>MarioKart</finalName>
