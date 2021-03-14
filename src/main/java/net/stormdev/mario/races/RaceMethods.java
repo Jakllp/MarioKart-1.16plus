@@ -95,6 +95,7 @@ public class RaceMethods {
 				CarRespawnReason.TELEPORT);
 		car.setDisplayBlockData(saw);
 		car.setDisplayBlockOffset(0);
+		
 		plugin.getServer().getPluginManager().callEvent(evnt);
 		if(evnt.isCancelled()){
 			car.remove();
@@ -119,8 +120,8 @@ public class RaceMethods {
 		player.updateInventory();
 		
 		player.setScoreboard(race.board);
-		car.addPassenger(player);
 		player.setMetadata("car.stayIn", new StatValue(null, MarioKart.plugin));
+		
 		Bukkit.getScheduler().runTaskAsynchronously(MarioKart.plugin, new Runnable(){
 
 			@Override
