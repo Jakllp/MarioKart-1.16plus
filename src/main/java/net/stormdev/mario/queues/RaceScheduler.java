@@ -427,7 +427,7 @@ public class RaceScheduler {
 						p.getVehicle().eject();
 					}
 					Chunk c = loc.getChunk();
-					if (c.isLoaded()) {
+					if (!c.isLoaded()) {
 						c.load(true);
 					}
 					p.teleport(loc.add(0, 2, 0));

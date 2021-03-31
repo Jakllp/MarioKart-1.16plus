@@ -111,6 +111,14 @@ public class MKLang {
 			lang.set("general.cmd.setMinPlayers.success",
 					"Successfully set the minimum players for track %name%!");
 		}
+		if (!lang.contains("general.cmd.setLobby.success")) {
+			lang.set("general.cmd.setLobby.success",
+					"Successfully set the Lobby for track %name%!");
+		}
+		if (!lang.contains("general.cmd.setExit.success")) {
+			lang.set("general.cmd.setExit.success",
+					"Successfully set the Exit for track %name%!");
+		}
 		if (!lang.contains("general.cmd.setRewards.success")) {
 			lang.set("general.cmd.setRewards.success",
 					"Successfully set the rewards for track %name%!");
@@ -176,7 +184,7 @@ public class MKLang {
 		if (!lang.contains("setup.create.notEnoughCheckpoints")) {
 			lang.set("setup.create.notEnoughCheckpoints",
 					"You must have at least 3 checkpoints! You only have: %num%");
-		}
+		} 
 		if (!lang.contains("setup.create.line1")) {
 			lang.set(
 					"setup.create.line1",
